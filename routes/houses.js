@@ -1,9 +1,8 @@
 var express = require('express');
+const houses_controlers= require('../controllers/houses');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('houses', { title: 'Search Results houses'});
-});
+router.get('/', houses_controlers.houses_view_all_Page );
 
 module.exports = router;

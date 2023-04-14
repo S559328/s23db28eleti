@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  - let results = [{houses_color:"Brown",houses_length:"800",houses_cost:"$200000"},{houses_color:"yellow",houses_length:"1000",houses_cost:"$250000"},{houses_color:"gray",houses_length:"600",houses_cost:"$10000"}]
+  //- let results = [{houses_color:"Brown",houses_length:"800",houses_cost:"$200000"},{houses_color:"yellow",houses_length:"1000",houses_cost:"$250000"},{houses_color:"gray",houses_length:"600",houses_cost:"$10000"}]
   div(class="container-fluid")
     div(class="row")
-      each item,index in results
+      each item,index in houses
         div(class="col-sm-2",onClick=`buy(${index})`)
          p Color is #{item.houses_color}
           p Length is #{item.houses_length}
