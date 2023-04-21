@@ -1,0 +1,54 @@
+extends layout
+
+block content
+  h1= title
+  if(toShow == null)
+       h2 No instance to delete 
+  else
+       -let carid = toShow._id
+       - let houses_color = toShow.houses_color
+       - let houses_length = toShow.houses_length
+       - let houses_length = toShow.houses_length
+       
+    
+       div.row(class='mb-2')
+           div.mr-1 ID is
+           div #{carid}
+       - let actionid = "/resource/houses/" + carid
+       form(id='housesForm', action= actionid, method="PUT")
+           div.form-group
+               label.housesAttr(for='houses_color') Car color
+               input#houses_color(type='text', name='houses_color', value= houses_color )
+           div.form-group
+               label.housesAttr(for='houses_length') Car Type
+               input#houses_length(type='text', name='houses_length', value= houses_length )
+           div.form-group
+               label.housesAttr(for='houses_length') Car cost
+               input#houses_length(type='text', name='houses_length', value= houses_length )
+           div.form-group
+               label.housesAttr(for='Car_mileage') Car cost
+               input#Car_mileage(type='number', name='Car_mileage', value= Car_mileage )
+           div.form-group
+               label.housesAttr(for='Car_cost') Car cost
+               input#Car_cost(type='number', name='Car_cost', value= Car_cost )
+           input(type="submit")
+       script.
+           document.forms['housesForm'].addEventListener('submit', (event) => {
+           event.preventDefault();
+           // TODO do something here to show user that form is being submitted
+           fetch(event.target.action, {
+               method:'PUT',
+               body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+           }).then((resp) => {
+               return resp.json(); // or resp.text() or whatever the server sends
+           }).then((body) => {
+               alert("Update succeded")
+               window.location.href='/Car'
+           // TODO handle body
+           }).catch((error) => {
+           // TODO handle error
+               alert("Update failed " + error )
+           });
+           });
+
+

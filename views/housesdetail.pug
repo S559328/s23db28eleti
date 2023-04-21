@@ -1,0 +1,26 @@
+extends layout
+block content
+    h1= title
+    if(toShow == null)
+        h2 No instance to detail is not found 
+    else
+        - let houses_color = toShow.houses_color
+        - let houses_length = toShow.houses_length
+        - let houses_cost = toShow.houses_cost
+        
+        div
+            div.row(id="housesAttr")
+                div(class="housesAttr mr-3") house color is:
+                div #{houses_color}
+            div.row
+                div(class="housesAttr mr-3") house Model is:
+                div #{houses_length}
+            div.row
+                div(class="housesAttr mr-3") house Title is:
+                div #{houses_cost}
+            div.row
+                div(class="housesAttr mr-3") house Mileage is:
+                div #{Car_mileage}
+            div.row
+                div(class="housesAttr mr-3") house cost is:
+                div #{Car_cost}
