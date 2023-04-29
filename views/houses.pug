@@ -6,7 +6,7 @@ block content
   div(class="container-fluid")
     div(class="row")
       each item,index in items
-        - let destination = `dispatch(\"/movies/update?id=${item._id}\")`
+        - let destination = `dispatch(\"/houses/update?id=${item._id}\")`
         div(class="col-sm-2" class="m-1")
           h3 #{item.houses_color}
           p #{item.houses_length}
@@ -18,4 +18,3 @@ block content
       window.location.href=path;
     }
 
-    

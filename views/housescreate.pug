@@ -2,6 +2,9 @@ extends layout
 
 block content
  h1= title
+ if (toShow == null)
+        h2 No instance to delete
+    else
  form(id='housesForm' action="/resource/houses" method="POST")
   div.form-group
       label.housesAttr(for='houses_color') house color
